@@ -4,7 +4,7 @@ var time = document.querySelector("#countdown");
 var startCountdown = document.querySelector("#start");
 var stopCountdown = document.querySelector("#stop");
 var pauseCountdown = document.querySelector("#pause");
-var imgCat = document.querySelector("img");
+var img = document.querySelector("img");
 
 // minutes.oninput = updateCountdown(toatlSeconds);
 // seconds.oninput = updateCountdown(toatlSeconds);
@@ -57,17 +57,14 @@ function updateCountdown(toatlSeconds) {
 }
 
 function endTime() {
-  heart.style = "display: inline";
   fetch("https://aws.random.cat/meow")
     .then(function (res) {
       return res.json();
     })
     .then(function (json) {
       img.src = json.file;
-      img.onload = function () {
-        img.style = "display: inline";
-        heart.style = "display: none";
-      };
+
+      img.style = "display: inline";
     });
 }
 
